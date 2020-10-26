@@ -2,7 +2,7 @@
 
 # ACORN <small>v2</small>
 
-> Development, implementation and assessment of enhanced antimicrobial resistance (AMR) surveillance.
+> Development, implementation and assessment of <br>enhanced antimicrobial resistance (AMR) surveillance.
 
 - Follow WHO GLASS Recommendations
 - Integrate Patient Data Collection
