@@ -1,1 +1,1 @@
-If you have questions about the project, please contact ACORN investigators <a href="mailto:Pault@tropmedres.ac" target="_top">Prof Paul Turner</a> or <a href="mailto:rvandoorn@oucru.org" target="_top">Prof Rogier van Doorn.</a>
+If you have questions about the project, please <a href="mailto:acorn@tropmedres.ac" target="_top">contact the ACORN team.</a>
