@@ -119,9 +119,7 @@ In **AWS DataSync**, add a backup task to create a daily backup task:
 - Folder prefix "cyXXX"
 - IAM role: daily-backup-role
 - execute this task at 10:00
-
-
-
+- (NEXT)
 - name it backup-cyXXX
 - target is acornamr-backup
 
