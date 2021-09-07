@@ -1,5 +1,7 @@
 # ACORN Roadmap
 
+<a class="twitter-timeline" data-width="300" data-height="700" data-theme="dark" href="https://twitter.com/ACORN_AMR?ref_src=twsrc%5Etfw">Tweets by ACORN_AMR</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Phase 1
 
 The first phase of the ACORN project has been completed!
