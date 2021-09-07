@@ -19,7 +19,7 @@ The buckets are of four types:
 - one bucket for data used across sites `shared-acornamr`. It contains:
     - a file with ACORN project lab codes.
     - encrypted files with credentials to access each site bucket.
-- one backup bucket `acorn-backup`. *Using the AWS DataSync service, we have created daily backup tasks: at 10am UTC, a backup of all new objects in every site buckets is completed in this backup bucket located in “US East (N. Virginia) us-east-1” region.*
+- one backup bucket `acornamr-backup`. *Using the AWS DataSync service, we have created daily backup tasks: at 10am UTC, a backup of all new objects in every site buckets is completed in this backup bucket located in “US East (N. Virginia) us-east-1” region.*
 
 
 # Add a New Site
@@ -53,7 +53,7 @@ and the following settings:
 
 ## Create a Policy
 
-In AWS IAM, create a policy, using JSON, name it “cyXXX-LRW-policy”:
+In **AWS Identity and Access Management (IAM)**, create a policy, using JSON, name it “cyXXX-LRW-policy”:
 
 ```
 {
@@ -96,7 +96,7 @@ In AWS IAM, create a policy, using JSON, name it “cyXXX-LRW-policy”:
 
 ## Create a User
 
-In AWS IAM, add user
+In **AWS IAM**, add user
 
 - User name: “admin-cyXXX”
 - Access type: Programmatic access
@@ -105,12 +105,25 @@ In AWS IAM, add user
 
 ### Create a Backup Task
 
-in DataSync, add a backup task to create a daily backup task:
+In **AWS DataSync**, add a backup task to create a daily backup task:
+
+- Create a new location
+- Location type: Amazon S3; Region: Europe (Paris)
+- Select the bucket "acornamr-cyXXX"
+- Storage Class Standard
+- Folder "" (blank)
+- IAM role: daily backup role
+- (NEXT)
+- Location type: Amazon S3; Region: US East (N. Virginia)
+- S3 bucket is acornamr-backup
+- Folder prefix "cyXXX"
+- IAM role: daily-backup-role
+- execute this task at 10:00
+
+
 
 - name it backup-cyXXX
 - target is acornamr-backup
-- path `/cyXXX/`
-- execute this task at 10:00
 
 
 ## Create Credentials with R
