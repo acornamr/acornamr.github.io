@@ -8,5 +8,5 @@
 - Integrate Patient Data Collection
 - Provide Dashboard for Visualisation & Analysis
 
-[GitHub](https://github.com/acornamr)
-[Get Started](./README.md)
+[Follow us on Twitter, @ACORN_AMR](https://twitter.com/ACORN_AMR)
+[Learn more on ACORN](./README.md)

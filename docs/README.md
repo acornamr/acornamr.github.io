@@ -4,7 +4,7 @@ A Clinically Oriented antimicrobial Resistance Network
 
 ## What is ACORN? 
 
-ACORN is a Wellcome funded human health clinical AMR surveillance project led by the Mahidol-Oxford Tropical Medicine Research Unit (MORU) and the Oxford University of Oxford Clinical Research Unit (OUCRU).
+ACORN is a Wellcome funded human health clinical AMR surveillance project led by the [Mahidol-Oxford Tropical Medicine Research Unit](https://www.tropmedres.ac/) (MORU) and the [Oxford University of Oxford Clinical Research Unit](http://www.oucru.org/) (OUCRU).
 
 ## Why is ACORN needed? 
 
@@ -15,3 +15,7 @@ To fill these gaps, the major aim of ACORN is to develop and test a comprehensiv
 ## Where is ACORN surveillance being done? 
 
 A pilot project was done at Angkor Hospital for Children (Siem Reap, Cambodia), Mahosot Hospital (Vientiane, Lao PDR), and the National Hospital for Tropical Diseases (Hanoi, Vietnam). In the second phase, surveillance is being rolled out at 15 hospitals across 9 Asian and African countries.
+
+- ACORN concept: https://academic.oup.com/jacamr/article/2/1/dlaa018/5804106
+- ACORN phase 1 protocol: https://wellcomeopenresearch.org/articles/5-13
+- Costs of AMR surveillance: coming soon
