@@ -4,9 +4,37 @@ Raw clinical data and lab data are managed in ACORN with REDCap and with each si
 The dashboard is used when all clinical and lab data has been collected. It is the tool to combine these data into an .acorn file and to save this file on servers. *(an .acorn file contains data frames that can be read with R.)*
 We use Amazon Web Services (AWS) to manage the ACORN data and to create backups on a secure platform.
 
-# Data Architecture
 
-For ACORN, we manage several independent buckets containing all the data elements required to operate the dashboard and securely save the data created (.acorn files).
+# .acorn Files
+
+.acorn files can be read and loaded in memory with the command `base::load`.
+
+for example `load(file = "/Users/olivier/Desktop/KH001_2023-08-24_01H59.acorn")` loads the following R objects:
+
+- `redcap_f01f05_dta`: one patient enrolment per row. patient_id is hashed.
+- `redcap_hai_dta`: one survey element per row.
+- `corresp_org_antibio`: matrix of antibiotics and bugs as per the 
+- `acorn_dta`: one isolate per row. Contains only isolates that can be linked to a patient enrolment in `redcap_f01f05_dta`. patient_id is hashed.
+- `data_dictionary`: all data of the site lab data dictionary file that has been used during the generation of the .acorn file.
+- `lab_code`: all data of the ACORN2 lab code file that has been used during the generation of the .acorn file.
+- `meta`: metadata collected on generation of the .acorn file.
+
+
+With each file NAME.acorn, a NAME.acorn_non_anonymised is also created.
+
+This NAME.acorn_non_anonymised can also be loaded with the same command `load(file = "NAME.acorn_non_anonymised")` (supposing the file is located in the current working directory).
+
+The file contains the same objects as NAME.acorn, but with patient ids NOT hashed in `redcap_f01f05_dta` and `acorn_dta`. The file contains one element in addition:
+
+- `lab_dta`: one row per isolate as per the lab file provided on generation of the .acorn file.
+
+
+The non_anonmyised `.acorn` files must be handled carefully and securely, as they contain raw patient identifiers: these files may be used by local investigators to link data / bacterial isolates to additional research projects / quality improvement activities. Please contact the ACORN team for more information.
+
+
+# Data on AWS
+
+For ACORN, we manage several independent buckets containing all the data elements required to operate the dashboard and securely save the data created (`.acorn` files).
 
 <img src="./images/acorn2-buckets.png" alt="Data Buckets" width = "80%"/>
 
