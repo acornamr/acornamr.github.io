@@ -5,33 +5,6 @@ The dashboard is used when all clinical and lab data has been collected. It is t
 We use Amazon Web Services (AWS) to manage the ACORN data and to create backups on a secure platform.
 
 
-# .acorn Files
-
-.acorn files can be read and loaded in memory with the command `base::load`.
-
-for example `load(file = "/Users/olivier/Desktop/KH001_2023-08-24_01H59.acorn")` loads the following R objects:
-
-- `redcap_f01f05_dta`: one patient enrolment per row. patient_id is hashed.
-- `redcap_hai_dta`: one survey element per row.
-- `corresp_org_antibio`: matrix of antibiotics and bugs as per the 
-- `acorn_dta`: one isolate per row. Contains only isolates that can be linked to a patient enrolment in `redcap_f01f05_dta`. patient_id is hashed.
-- `data_dictionary`: all data of the site lab data dictionary file that has been used during the generation of the .acorn file.
-- `lab_code`: all data of the ACORN2 lab code file that has been used during the generation of the .acorn file.
-- `meta`: metadata collected on generation of the .acorn file.
-
-
-With each file NAME.acorn, a NAME.acorn_non_anonymised is also created.
-
-This NAME.acorn_non_anonymised can also be loaded with the same command `load(file = "NAME.acorn_non_anonymised")` (supposing the file is located in the current working directory).
-
-The file contains the same objects as NAME.acorn, but with patient ids NOT hashed in `redcap_f01f05_dta` and `acorn_dta`. The file contains one element in addition:
-
-- `lab_dta`: one row per isolate as per the lab file provided on generation of the .acorn file.
-
-
-The non_anonmyised `.acorn` files must be handled carefully and securely, as they contain raw patient identifiers: these files may be used by local investigators to link data / bacterial isolates to additional research projects / quality improvement activities. Please contact the ACORN team for more information.
-
-
 # Data on AWS
 
 For ACORN, we manage several independent buckets containing all the data elements required to operate the dashboard and securely save the data created (`.acorn` files).
@@ -166,3 +139,22 @@ Share this updated `ACORN2_Cred.xlsx` file with Olivier who will:
 - generate credentials with the script https://github.com/acornamr/acorn-dashboard/blob/master/misc/create_encrypted_credentials.R
 - upload these new credentials to the `shared-acornamr` bucket via FTP.
 - test that these new credentials are working properly.
+
+
+# Access AWS via FTP
+
+Several FTP clients are available to access AWS, we recommend [Cyberduck](https://en.wikipedia.org/wiki/Cyberduck) that is multi-platform and free.
+
+To access AWS buckets, you will need to:
+
+1. connect to the AWS console using acorn project credential
+2. create a KEY and SECRET pair in the console
+3. use this KEY and SECRET pair to set up a connection in your FTP client
+
+
+The following actions should be performed with a FTP client:
+
+- update the lab codes by replacing `ACORN2_lab_codes.xlsx` in /shared-acornamr bucket
+- add/remove a user by adding/removing `encrypted_cred_xxYYYY_zzz.rd` in /shared-acornamr bucket
+- update a site data dictionary by replacing `ACORN2_lab_data_dictionary_xxYYY_TABULAR.xlsx` and/or `ACORN2_lab_data_dictionary_xxYYY_WHONET.xlsx` in the site bucket.
+- download `.acorn` or `.acorn_non_anonymised` files from a site bucket.
