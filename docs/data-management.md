@@ -5,7 +5,7 @@ The dashboard is used when all clinical and lab data has been collected. It is t
 We use Amazon Web Services (AWS) to manage the ACORN data and to create backups on a secure platform.
 
 
-# Data on AWS
+# Overview of Data on AWS
 
 For ACORN, we manage several independent buckets containing all the data elements required to operate the dashboard and securely save the data created (`.acorn` files).
 
@@ -25,36 +25,45 @@ The buckets are of four types:
 
 # Add a New Site
 
-Adding a site require several steps that we will detail.
+Adding a site require to carefully follow several steps to update elements in AWS and in the dashboard.
 
-- create a bucket for the site
-- add one or several users in AWS with appropriate access to the site data/bucket
-- include the bucket in the backup plan
+The following elements should be gathered before starting to add a new site:
 
-Several files/tools/infos are used in the process and should be gathered beforehand:
-
+- CSV file `ACORN2_site_codes.csv`
 - MS Excel file `ACORN2_Cred.xlsx`
-- Credentials for access to AWS acornamr console
+- Credentials for access to AWS console as a root user.
 - REDCap API keys for F01-F05 forms and HAI.
 - R script for `create_encrypted_credentials.R`
 
+
+## Update ACORN Site Codes
+
+- Update the file `ACORN2_site_codes.csv` with the site information on TEAMS. Share this updated file with the dashboard developer.
+- [Dashboard developer] updates the file in the `www/data/` folder.
+
+
 ## Create a Site Bucket
 
-In **AWS S3**, create a bucket `acornamr-cyXXX` with :
+Sign in to the AWS Console at [https://aws.amazon.com](https://aws.amazon.com) as ACORN root user.
+In the "Storage" section of the dropdown menu "Services", select S3.
+
+In **Amazon S3**, create a bucket named `acornamr-cyXXX` with :
 
 - `cy` the [two-letters ISO country code ](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
 - `XXX` the number of the site, starting at `001` and adding a unit with every new site added to the project.
 
-and the following settings:
+Use the following settings (that can be reviewed in the Properties tab):
 
-- region set to `EU (Paris) eu-west-3`
-- all public access blocked
-- enable bucket versioning
-- server-side encryption with Amazon S3 key (SSE-S3)
+- AWS region set to `EU (Paris) eu-west-3`.
+- Block all public access.
+- Bucket Versioning Enabled.
+- Server-side encryption with Amazon S3 key (SSE-S3).
 
 ## Create a Policy
 
-In **AWS Identity and Access Management (IAM)**, create a policy, using JSON, name it “cyXXX-LRW-policy”:
+In the "Security, Identity, & Compliance" section of the dropdown menu "Services", select IAM.
+
+In **Identity and Access Management (IAM) >> Access Management >> Policies**, create a policy, using JSON, name it “cyXXX-LRW-policy”:
 
 ```
 {
@@ -97,48 +106,60 @@ In **AWS Identity and Access Management (IAM)**, create a policy, using JSON, na
 
 ## Create a User
 
-In **AWS IAM**, add user
+In **Identity and Access Management (IAM) >> Access Management >> Users**, click on "Add users" and proceed with:
 
-- User name: “admin-cyXXX”
-- Access type: Programmatic access
+- User name: “admin-cyXXX”.
+- Access type: Programmatic access.
 - Attach existing policies directly, search for “cyXXX-LRW-policy”.
-- Copy the access key and secret key in a safe place
+- Copy the access key and secret key in a safe place - it will be added to the `ACORN2_Cred.xlsx` file. 
 
-### Create a Backup Task
+## Create a Backup Task
 
-In **AWS DataSync**, add a backup task to create a daily backup task:
+### Create a IAM role for access
 
-- Create a new location
-- Location type: Amazon S3; Region: Europe (Paris)
-- Select the bucket "acornamr-cyXXX"
-- Storage Class Standard
-- Folder "" (blank)
-- IAM role: daily backup role
-- (NEXT)
-- Location type: Amazon S3; Region: US East (N. Virginia)
-- S3 bucket is acornamr-backup
-- Folder prefix "cyXXX"
-- IAM role: daily-backup-role
-- execute this task at 10:00
-- (NEXT)
-- name it backup-cyXXX
-- target is acornamr-backup
+(TODO describe steps resulting in the creation of the new role: AWSDataSyncS3BucketAccess-acornamr-cyXXX.)
+
+### Create Task
+
+
+In the "Migration & Transfer" section of the dropdown menu "Services", select DataSync.
+
+In **AWS DataSync**, click on "Create task" and set proceed with:
+
+- Create a new location.
+- Location type: Amazon S3; Region: Europe (Paris).
+- Select the bucket "acornamr-cyXXX".
+- S3 storage class : Standard.
+- Folder "" (blank).
+- IAM role: AWSDataSyncS3BucketAccess-acornamr-cyXXX.
+- Click on "Next".
+- Select "Create a new location".
+- Location type: Amazon S3.
+- S3 bucket: acornamr-backup.
+- S3 storage class: Standard.
+- Folder: "cyXXX"
+- IAM role: AWSDataSyncS3BucketAccess-acornamr-backup
+- Click on "Next".
+- Task name: "backup-cyXXX"
+- (Accept all default settings.)
+- Schedule: Frequency: daily
+- Schedule: at 10:00
+- Create task.
 
 
 ## Create Credentials with R
 
-Add a line to `ACORN2_Cred.xlsx` with the following information:
-
-- site name
-- user name and password, possibly using https://xkpasswd.net/s/
-- access and secret keys obtained when creating the user
-- Two REDCap API keys for the site
-
-Share this updated `ACORN2_Cred.xlsx` file with Olivier who will:
-
-- generate credentials with the script https://github.com/acornamr/acorn-dashboard/blob/master/misc/create_encrypted_credentials.R
-- upload these new credentials to the `shared-acornamr` bucket via FTP.
-- test that these new credentials are working properly.
+- Ask for credentials emails from the site.
+- Download latest KeePass file on TEAMS.
+- Add credential emails with generated passwords and other elements to `ACORN2_cred.xlsx` in the KeePass file.
+    - AWS access and secret keys obtained when creating the user (see above).
+    - REDCap API keys should be identical to the other sites.
+    - Check that there is no autocompletion of elements (name of buckets etc.) in Excel.
+- Update the KeePass file on TEAMS.
+- [Dashboard developer] generates the `.rds` credential files with R using the script https://github.com/acornamr/acorn-dashboard/blob/master/misc/create_encrypted_credentials.R
+- [Dashboard developer] upload the `.rds` credentials files to the `shared-acornamr` bucket.
+- Test that these new credentials are working properly.
+- Email new credentials.
 
 
 # Access AWS via FTP
