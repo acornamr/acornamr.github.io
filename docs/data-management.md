@@ -115,23 +115,18 @@ In **Identity and Access Management (IAM) >> Access Management >> Users**, click
 
 ## Create a Backup Task
 
-### Create a IAM role for access
-
-(TODO describe steps resulting in the creation of the new role: AWSDataSyncS3BucketAccess-acornamr-cyXXX.)
-
 ### Create Task
-
 
 In the "Migration & Transfer" section of the dropdown menu "Services", select DataSync.
 
-In **AWS DataSync**, click on "Create task" and set proceed with:
+In **AWS DataSync**, click on "Create task" and proceed with:
 
 - Create a new location.
 - Location type: Amazon S3; Region: Europe (Paris).
 - Select the bucket "acornamr-cyXXX".
 - S3 storage class : Standard.
 - Folder "" (blank).
-- IAM role: AWSDataSyncS3BucketAccess-acornamr-cyXXX.
+- IAM role: AWSDataSyncS3BucketAccess-acornamr-backup
 - Click on "Next".
 - Select "Create a new location".
 - Location type: Amazon S3.
@@ -144,7 +139,15 @@ In **AWS DataSync**, click on "Create task" and set proceed with:
 - (Accept all default settings.)
 - Schedule: Frequency: daily
 - Schedule: at 10:00
+- Next.
 - Create task.
+
+### Test Backup Task
+
+- Create a text file and name it "test-backup-cyXXX.txt".
+- Using FTP, upload this newly created file in the "acornamr-cyXXX" bucket.
+- After 24 hours, check that "test-backup-cyXXX.txt" is in the "cyXXX" folder of the "acornamr-backup" bucket.
+- Remove the "test-backup-cyXXX.txt" file in both buckets.
 
 
 ## Create Credentials with R
