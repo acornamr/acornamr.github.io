@@ -157,13 +157,19 @@ In **AWS DataSync**, click on "Create task" and proceed with:
 - Add credential emails with generated passwords and other elements to `ACORN2_cred.xlsx` in the KeePass file.
     - AWS access and secret keys obtained when creating the user (see above).
     - REDCap API keys should be identical to the other sites.
-    - Check that there is no autocompletion of elements (name of buckets etc.) in Excel.
+    - Check that there is no autocompletion of elements when creating rows in Excel (name of buckets etc.).
 - Update the KeePass file on TEAMS.
 - [Dashboard developer] generates the `.rds` credential files with R using the script https://github.com/acornamr/acorn-dashboard/blob/master/misc/create_encrypted_credentials.R
 - [Dashboard developer] upload the `.rds` credentials files to the `shared-acornamr` bucket.
 - Test that these new credentials are working properly.
-- Email new credentials.
+- Securely communicate new credentials to users.
 
+### Test Credentials
+
+Open the dashboard, connect with the newly created credentials and ensure that:
+
+- The connection to REDCap is working.
+- It is possible to connect to the site bucket and load an existing .acorn file (if any existing).
 
 # Access AWS via FTP
 
