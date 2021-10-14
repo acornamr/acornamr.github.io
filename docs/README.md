@@ -18,4 +18,4 @@ A pilot project was done at Angkor Hospital for Children (Siem Reap, Cambodia), 
 
 - ACORN concept: https://academic.oup.com/jacamr/article/2/1/dlaa018/5804106
 - ACORN phase 1 protocol: https://wellcomeopenresearch.org/articles/5-13
-- Costs of AMR surveillance: coming soon
+- Costs of AMR surveillance: https://journals.plos.org/globalpublichealth/article?id=10.1371/journal.pgph.0000018
