@@ -9,4 +9,5 @@
 - Provide Dashboard for Visualisation & Analysis
 
 [Follow us on Twitter, @ACORN_AMR](https://twitter.com/ACORN_AMR)
-[Learn more on ACORN](./README.md)
+[Learn More About ACORN](./README.md)
+[Access ACORN Dashboard](https://moru.shinyapps.io/acorn2/)
