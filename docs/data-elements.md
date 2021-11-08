@@ -11,9 +11,9 @@ Other data elements by the user either throuh a connection (REDCap data) or via 
 
 ## .acorn Files
 
-.acorn files can be read and loaded in memory with the command `base::load`.
+.acorn files can be read and loaded in memory with the R command `base::load`.
 
-for example `load(file = "SITE_2023-08-24_01H59.acorn")` loads the following R objects:
+for example `load(file = "SITE_2023-08-24_01H59.acorn")` loads a R list containing the following elements:
 
 - `redcap_f01f05_dta`: one patient enrolment per row. patient_id is hashed.
 - `redcap_hai_dta`: one survey element per row.
@@ -30,6 +30,6 @@ With each file NAME.acorn, a NAME.acorn_non_anonymised is also created.
 
 This NAME.acorn_non_anonymised can also be loaded with the same command `load(file = "NAME.acorn_non_anonymised")` (supposing the file is located in the current working directory).
 
-The file contains the same objects as NAME.acorn, but with patient ids NOT hashed in `redcap_f01f05_dta`, `lab_dta`, and  `acorn_dta`.
+The file contains the same list as NAME.acorn, but with patient ids NOT hashed in `redcap_f01f05_dta`, `lab_dta`, and  `acorn_dta` elements.
 
-The non_anonmyised `.acorn` files must be handled carefully and securely, as they contain raw patient identifiers: these files may be used by local investigators to link data / bacterial isolates to additional research projects / quality improvement activities. Please contact the ACORN team for more information.
+The non_anonmyised `.acorn` files must be handled carefully and securely, as they contain raw patient identifiers: these files may be used by local investigators to link data / bacterial isolates to additional research projects / quality improvement activities. Please [contact the ACORN team](contact.md) for more information.
