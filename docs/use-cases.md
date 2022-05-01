@@ -1,6 +1,6 @@
 # Dashboard Use Cases
 
-The dashboard is designed to allow the consolidation of ACORN data into an .acorn file and its exploration. A user with credentials to access ressources for a site could (1) combine clinical and lab data into an .acorn file; (2) save a generated .acorn file in the cloud; (3) load an existing .acorn file and explore the data it contains as detailed in [the dashbaord cheat sheet (pdf).](pdf/ACORN2_dashboard_cheat_sheet.pdf)
+The dashboard is designed to allow the consolidation of ACORN data into an .acorn file and its exploration. A user with credentials to access ressources for a site could (1) combine clinical and lab data into an .acorn file; (2) save a generated .acorn file in the cloud; (3) load an existing .acorn file and explore the data it contains as detailed in [the dashbaord cheat sheet (pdf).](https://acornamr.net/pdf/ACORN2_dashboard_cheat_sheet.pdf)
 
 The four use cases below cover the most anticipated uses of the dashboard.
 
