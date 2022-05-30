@@ -14,6 +14,15 @@ A pilot project was done at Angkor Hospital for Children (Siem Reap, Cambodia), 
 
 <img src="./images/Map-ACORN-Sites-Global.png" alt="ACORN Sites" width = "70%"/>
 
+## Surveillance documents
+
+- Protocol: https://acornamr.net/docs/ACORN2_protocol_V1.0.pdf
+- Surveillance manual: https://acornamr.net/docs/ACORN2_surveillance_manual_V3.0.pdf
+- Diagnostic stewardship manual: https://acornamr.net/docs/ACORN2_diagnostic_stewardship_manual_V1.0.pdf
+- IT manual: https://acornamr.net/docs/ACORN2_IT_manual_V2.2.pdf
+- Participant Information Sheet: https://acornamr.net/docs/ACORN2_PIS_V1.0.pdf
+- Case record forms: https://acornamr.net/docs/ACORN_CRFs.zip
+
 ## Further Reading
 
 - ACORN concept: https://academic.oup.com/jacamr/article/2/1/dlaa018/5804106
