@@ -146,4 +146,4 @@ The following actions should be performed with a FTP client:
 - update the lab codes by replacing `ACORN2_lab_codes.xlsx` in /shared-acornamr bucket
 - add/remove a user by adding/removing `encrypted_cred_xxYYYY_zzz.rd` in /shared-acornamr bucket
 - update a site data dictionary by replacing `ACORN2_lab_data_dictionary_xxYYY_TABULAR.xlsx` and/or `ACORN2_lab_data_dictionary_xxYYY_WHONET.xlsx` in the site bucket.
-- download `.acorn` or `.acorn_non_anonymised` files from a site bucket.
+- download `.acorn` files from a site bucket.
