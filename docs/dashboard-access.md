@@ -5,7 +5,7 @@ The dashboard is available in three forms: a web app, a standalone app (Windows 
 ## Standalone App
 
 *(Windows OS only)*
-A standalone version of the app can be downloaded from [this repository' releases section](https://github.com/acornamr/acorn-dashboard/releases).
+A standalone version of the app can be downloaded and installed by following detailed instruction provided here: https://acornamr.net/docs/Updated_ACORN_app_installation_V1.1.pdf.
 
 ## Web App
 

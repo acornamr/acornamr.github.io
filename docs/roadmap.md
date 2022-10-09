@@ -8,6 +8,6 @@ As a result, you can access the proof of concept [ACORN online app](https://moru
 
 ## Phase 2
 
-The second phase of the project started in September 2021. This phase includes expanded  inclusion criteria and refined data capture and analysis tools. You can access the ACORN dashboard [online](https://moru.shinyapps.io/acorn2/) or use the latest release of the desktop app available on [the GitHub repository of the project](https://github.com/acornamr/acorn-dashboard/releases).
+The second phase of the project started in September 2021. This phase includes expanded  inclusion criteria and refined data capture and analysis tools. You can access the ACORN dashboard [online](https://moru.shinyapps.io/acorn2/) or use the [standalone app](https://acornamr.net/#/dashboard-access).
 
 <img src="./images/acorn2-welcome.png" alt="ACORN AMR" width = "80%"/>
