@@ -8,9 +8,6 @@ Existing AMR surveillance systems are based mostly on diagnostic microbiology la
 
 To fill these gaps, the major aim of ACORN is to develop and test a comprehensive data capture system for patient-focussed AMR surveillance in LMIC settings. Surveillance will include diagnostic stewardship activities. Data collected will harmonise with and expand on the pathogen-focussed <a href="https://www.who.int/glass/en/" target="_blank">WHO Global Antimicrobial Resistance Surveillance System</a> to enable accurate classification of infection syndromes and patient outcomes. These data will be of critical importance to estimate syndromic and/or pathogen outcomes and associated costs: i.e. how many people die from DRIs and how much does AMR cost?
 
-## Where is ACORN surveillance being done?
-
-A pilot project was done at Angkor Hospital for Children (Siem Reap, Cambodia), Mahosot Hospital (Vientiane, Lao PDR), and the National Hospital for Tropical Diseases (Hanoi, Vietnam). In the second phase, surveillance is being rolled out at 15 hospitals across 9 Asian and African countries.
 
 <img src="./images/Map-ACORN-Sites-Global.png" alt="ACORN Sites" width = "70%"/>
 
